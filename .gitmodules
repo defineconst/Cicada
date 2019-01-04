@@ -1,0 +1,3 @@
+[submodule "IoTSharp.SDKs"]
+	path = IoTSharp.SDKs
+	url = https://github.com/IoTSharp/IoTSharp.SDKs.git
