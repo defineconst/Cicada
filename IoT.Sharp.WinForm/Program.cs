@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
+using IoT.Sharp.Sdk.CSharp;
 
 namespace IoT.Sharp.WinForm
 {
@@ -19,6 +20,7 @@ namespace IoT.Sharp.WinForm
             Application.SetCompatibleTextRenderingDefault(false);
 
             BonusSkins.Register();
+            SdkClient.BaseURL = Properties.Settings.Default.ApiUrl;
             Application.Run(new frmMain());
         }
     }

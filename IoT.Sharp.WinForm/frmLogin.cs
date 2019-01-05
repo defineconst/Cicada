@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using IoT.Sharp.Sdk.CSharp;
+using System.Threading;
 
 namespace IoT.Sharp.WinForm
 {
@@ -19,15 +20,10 @@ namespace IoT.Sharp.WinForm
             InitializeComponent();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
-
 
         private async void btnLogin_ClickAsync(object sender, EventArgs e)
         {
-            var Client = new Sdk.CSharp.AccountClient(Properties.Settings.Default.ApiUrl);
+            var Client = SdkClient.Create<Sdk.CSharp.AccountClient>();
             string username = txtUserName.Text;
             string password = txtPassword.Text;
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -41,7 +37,7 @@ namespace IoT.Sharp.WinForm
                     var result = await Client.LoginAsync(new Sdk.CSharp.LoginDto() { Email = username, Password = password });
                     if (result.StatusCode == 200)
                     {
-
+                        DialogResult = DialogResult.OK;
                     }
                     else
                     {
@@ -90,16 +86,26 @@ namespace IoT.Sharp.WinForm
                 Location = new Point(_formLocation.X - x, _formLocation.Y - y);
             }
         }
-        private   void frmLogin_Load(object sender, EventArgs e)
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            cts.Cancel(false);
+            DialogResult = DialogResult.Cancel;
+        }
+
+        CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+        private void frmLogin_Load(object sender, EventArgs e)
         {
             lblVersion.Text = "V" + AppUtils.AssemblyVersion;
             btnLogin.Enabled = false;
             lblInfo.Text = "正在检查服务器...";
+
+            cts.Token.Register(() => Console.WriteLine(DateTime.Now.ToString() + "取消"));
             Task.Run(async () =>
             {
                 try
                 {
-                    var Client = new Sdk.CSharp.InstallerClient(Properties.Settings.Default.ApiUrl);
+                    var Client = SdkClient.Create<Sdk.CSharp.InstallerClient>();
                     var fr = await Client.CheckInstallationAsync();
                     if (fr.StatusCode == 200)
                     {
@@ -114,21 +120,27 @@ namespace IoT.Sharp.WinForm
                             else
                             {
                                 lblInfo.Text = result.msg;
+                                DialogResult = DialogResult.No;
                             }
                         });
                     }
                 }
                 catch (SwaggerException se)
                 {
-
-                    lblInfo.Text = se.ToResult().ToString();
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        lblInfo.Text = se.ToResult().ToString();
+                    });
                 }
                 catch (Exception ex)
                 {
-                    lblInfo.Text = ex.Message;
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        lblInfo.Text = ex.Message;
+                    });
                 }
-              
-            });
+
+            }, cts.Token);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -136,6 +148,6 @@ namespace IoT.Sharp.WinForm
             AppUtils.ShowFileByExplorer("http://www.iotsharp.net/");
         }
 
-        
+
     }
 }

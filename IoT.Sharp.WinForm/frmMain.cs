@@ -19,7 +19,20 @@ namespace IoT.Sharp.WinForm
         private void btnLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmLogin fl = new frmLogin();
-            if (fl.ShowDialog(this) == DialogResult.OK)
+            var result = fl.ShowDialog(this);
+            if (result == DialogResult.OK)
+            {
+                
+            }
+            else if (result== DialogResult.No)
+            {
+                frmInstaller installer = new frmInstaller();
+                if (installer.ShowDialog()== DialogResult.OK)
+                {
+                    btnLogin.PerformClick();
+                }
+            }
+            else if (result == DialogResult.Cancel)
             {
                 
             }
