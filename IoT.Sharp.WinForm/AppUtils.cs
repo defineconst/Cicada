@@ -6,11 +6,48 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace IoT.Sharp.WinForm
 {
     public static class AppUtils
     {
+        public static T ShowMdiChildren<T>(this Form @this)
+             where T : Form
+        {
+            return ShowMdiChildren<T>(@this, null);
+        }
+        public static T ShowMdiChildren<T>(this Form @this, string title)
+        where T : Form
+        {
+            return ShowMdiChildren<T>(@this, title, false);
+        }
+        public static T ShowMdiChildren<T>(this Form @this, bool newone)
+        where T : Form
+        {
+            return ShowMdiChildren<T>(@this, null, true);
+        }
+        public static T ShowMdiChildren<T>(this Form owner, string title, bool newone)
+        where T : Form
+        {
+            GC.Collect();
+            T f = default(T);
+            if (newone == false)
+            {
+                var frm = from n in owner.MdiChildren
+                          where n.GetType() == typeof(T)
+                          select n;
+                f = frm.SingleOrDefault() as T;
+            }
+            if (f == null)
+            {
+                f = Activator.CreateInstance<T>();
+                f.MdiParent = owner;
+            }
+            f.Show();
+            f.Activate();
+            return f;
+        }
         public static void ShowFileByExplorer(string filename)
         {
             try
@@ -25,7 +62,7 @@ namespace IoT.Sharp.WinForm
 
             }
         }
-      
+
         #region 程序集特性访问器
 
         public static string AssemblyTitle

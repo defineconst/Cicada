@@ -40,15 +40,15 @@
             this.btnTen = new DevExpress.XtraBars.BarButtonItem();
             this.btnCoumter = new DevExpress.XtraBars.BarButtonItem();
             this.btnUserAdmin = new DevExpress.XtraBars.BarButtonItem();
+            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.xtraTabbedMdiManagerEX1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManagerEX(this.components);
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
-            this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
+            this.xtraTabbedMdiManagerEX1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManagerEX(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManagerEX1)).BeginInit();
@@ -71,6 +71,7 @@
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonControl1.MaxItemId = 11;
+            this.ribbonControl1.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -127,6 +128,7 @@
             this.btnTen.Id = 6;
             this.btnTen.ImageOptions.SvgImage = global::IoT.Sharp.WinForm.Properties.Resources.bo_lead;
             this.btnTen.Name = "btnTen";
+            this.btnTen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTen_ItemClick);
             // 
             // btnCoumter
             // 
@@ -141,6 +143,18 @@
             this.btnUserAdmin.Id = 8;
             this.btnUserAdmin.ImageOptions.SvgImage = global::IoT.Sharp.WinForm.Properties.Resources.bo_person;
             this.btnUserAdmin.Name = "btnUserAdmin";
+            // 
+            // skinRibbonGalleryBarItem1
+            // 
+            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
+            this.skinRibbonGalleryBarItem1.Id = 9;
+            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
+            // skinPaletteRibbonGalleryBarItem1
+            // 
+            this.skinPaletteRibbonGalleryBarItem1.Caption = "skinPaletteRibbonGalleryBarItem1";
+            this.skinPaletteRibbonGalleryBarItem1.Id = 10;
+            this.skinPaletteRibbonGalleryBarItem1.Name = "skinPaletteRibbonGalleryBarItem1";
             // 
             // ribbonPage1
             // 
@@ -180,29 +194,17 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "选项";
             // 
-            // xtraTabbedMdiManagerEX1
-            // 
-            this.xtraTabbedMdiManagerEX1.BackImage = global::IoT.Sharp.WinForm.Properties.Resources.backgroupimage;
-            this.xtraTabbedMdiManagerEX1.BigLogo = global::IoT.Sharp.WinForm.Properties.Resources.logo;
-            this.xtraTabbedMdiManagerEX1.MdiParent = this;
-            // 
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
-            // skinRibbonGalleryBarItem1
+            // xtraTabbedMdiManagerEX1
             // 
-            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
-            this.skinRibbonGalleryBarItem1.Id = 9;
-            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
-            // 
-            // skinPaletteRibbonGalleryBarItem1
-            // 
-            this.skinPaletteRibbonGalleryBarItem1.Caption = "skinPaletteRibbonGalleryBarItem1";
-            this.skinPaletteRibbonGalleryBarItem1.Id = 10;
-            this.skinPaletteRibbonGalleryBarItem1.Name = "skinPaletteRibbonGalleryBarItem1";
+            this.xtraTabbedMdiManagerEX1.BackImage = global::IoT.Sharp.WinForm.Properties.Resources.backgroupimage;
+            this.xtraTabbedMdiManagerEX1.BigLogo = global::IoT.Sharp.WinForm.Properties.Resources.logo;
+            this.xtraTabbedMdiManagerEX1.MdiParent = this;
             // 
             // frmMain
             // 

@@ -108,6 +108,9 @@
     <Compile Include="frmAboutBox.designer.cs">
       <DependentUpon>frmAboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmInstaller.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,11 +132,11 @@
     <Compile Include="PrimaryScreen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="frmTenant.cs">
+    <Compile Include="frmTenantAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTenant.Designer.cs">
-      <DependentUpon>frmTenant.cs</DependentUpon>
+    <Compile Include="frmTenantAdmin.Designer.cs">
+      <DependentUpon>frmTenantAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="XtraTabbedMdiManagerEX.cs">
       <SubType>Component</SubType>
@@ -151,9 +154,6 @@
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTenant.resx">
-      <DependentUpon>frmTenant.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -165,6 +165,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="frmTenantAdmin.resx">
+      <DependentUpon>frmTenantAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XtraTabbedMdiManagerEX.resx">
       <DependentUpon>XtraTabbedMdiManagerEX.cs</DependentUpon>
     </EmbeddedResource>

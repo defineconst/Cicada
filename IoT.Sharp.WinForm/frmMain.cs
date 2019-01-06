@@ -51,5 +51,10 @@ namespace IoT.Sharp.WinForm
         {
             Application.Exit();
         }
+
+        private void btnTen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.ShowMdiChildren<frmTenantAdmin>();
+        }
     }
 }
