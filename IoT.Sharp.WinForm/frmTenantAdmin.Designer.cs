@@ -97,10 +97,7 @@
             this.gridView.FixedLineWidth = 3;
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
-            this.gridView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
-            this.gridView.OptionsEditForm.EditFormColumnCount = 1;
-            this.gridView.OptionsEditForm.PopupEditFormWidth = 520;
-            this.gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+         
             // 
             // colId
             // 

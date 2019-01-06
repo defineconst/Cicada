@@ -31,6 +31,13 @@ namespace IoT.Sharp.WinForm
                 gridView.EditFormPrepared += gridView_EditFormPrepared;
                 gridControl.Disposed += _gridControl_Disposed;
                 gridControl.Load += GridControl_Load;
+                gridView.OptionsBehavior.ReadOnly = false;
+                gridView.OptionsBehavior.Editable = true;
+                gridView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
+                gridView.OptionsEditForm.EditFormColumnCount = 1;
+                gridView.OptionsEditForm.PopupEditFormWidth = 520;
+                gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+
             }
         }
 
