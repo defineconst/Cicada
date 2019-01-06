@@ -15,19 +15,24 @@ namespace IoT.Sharp.WinForm
         public static T ShowMdiChildren<T>(this Form @this)
              where T : Form
         {
-            return ShowMdiChildren<T>(@this, null);
+            return ShowMdiChildren<T>(@this,"",false,null);
         }
-        public static T ShowMdiChildren<T>(this Form @this, string title)
+        public static T ShowMdiChildren<T>(this Form @this, Action<T> func)
+          where T : Form
+        {
+            return ShowMdiChildren<T>(@this, null, false, func);
+        }
+            public static T ShowMdiChildren<T>(this Form @this, string title)
         where T : Form
         {
-            return ShowMdiChildren<T>(@this, title, false);
+            return ShowMdiChildren<T>(@this, title, false,null);
         }
         public static T ShowMdiChildren<T>(this Form @this, bool newone)
         where T : Form
         {
-            return ShowMdiChildren<T>(@this, null, true);
+            return ShowMdiChildren<T>(@this, null, true,null);
         }
-        public static T ShowMdiChildren<T>(this Form owner, string title, bool newone)
+        public static T ShowMdiChildren<T>(this Form owner, string title, bool newone, Action<T> func)
         where T : Form
         {
             GC.Collect();
@@ -44,6 +49,7 @@ namespace IoT.Sharp.WinForm
                 f = Activator.CreateInstance<T>();
                 f.MdiParent = owner;
             }
+            func?.Invoke(f);
             f.Show();
             f.Activate();
             return f;

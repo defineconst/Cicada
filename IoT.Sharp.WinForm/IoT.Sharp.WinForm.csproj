@@ -138,11 +138,20 @@
     <Compile Include="frmTenantAdmin.Designer.cs">
       <DependentUpon>frmTenantAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCustomerAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomerAdmin.Designer.cs">
+      <DependentUpon>frmCustomerAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="XtraTabbedMdiManagerEX.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="frmAboutBox.resx">
       <DependentUpon>frmAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomerAdmin.resx">
+      <DependentUpon>frmCustomerAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInstaller.resx">
       <DependentUpon>frmInstaller.cs</DependentUpon>
@@ -259,6 +268,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\allowuserstoeditranges.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

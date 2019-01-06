@@ -22,7 +22,7 @@ namespace IoT.Sharp.WinForm
         public frmTenantAdmin()
         {
             InitializeComponent();
-            InitializeGridView(gridView);
+            InitializeGridView(gridView,colId);
             Client = SdkClient.Create<TenantsClient>();
         }
 
@@ -64,5 +64,14 @@ namespace IoT.Sharp.WinForm
             return Client.DeleteTenantAsync(obj.Id, token);
         }
 
+        private void bbiPrintPreview_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            gridControl.ShowPrintPreview();
+        }
+
+        private void btnCustonm_ItemClick(object sender, ItemClickEventArgs e)
+        {
+          var frm =   this.MdiParent.ShowMdiChildren<frmCustomerAdmin>( f=>f.Tenant=FocusedRow);
+        }
     }
 }

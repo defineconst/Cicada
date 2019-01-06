@@ -12,18 +12,20 @@ using System.Windows.Forms;
 
 namespace IoT.Sharp.WinForm
 {
-    public class AdminBase<T>: DevExpress.XtraBars.Ribbon.RibbonForm
+    public class AdminBase<T>: DevExpress.XtraBars.Ribbon.RibbonForm where T:class
     {
         GridControl gridControl;
         GridView gridView;
         BindingSource modelBindingSource;
-       
-        public void InitializeGridView(GridView _gridView)
+        GridColumn ColumnKey;
+        public void InitializeGridView(GridView _gridView, GridColumn  column)
         {
             gridControl = _gridView?.GridControl;
             if (gridControl != null  && !gridControl.IsDisposed && !gridControl.IsDesignMode)
             {
                 modelBindingSource = gridControl.DataSource as BindingSource;
+                ColumnKey = column;
+                column.Visible = false;
                 gridView = _gridView;
                 gridView.InitNewRow += gridView_InitNewRow;
                 gridView.RowUpdated += gridView_RowUpdated;
@@ -40,32 +42,25 @@ namespace IoT.Sharp.WinForm
 
             }
         }
+        public T FocusedRow => gridView.GetFocusedRow() as T;
 
-        private void GridControl_Load(object sender, EventArgs e)
-        {
-            DoRefresh();
-        }
+        private void GridControl_Load(object sender, EventArgs e) => DoRefresh();
 
-        private void _gridControl_Disposed(object sender, EventArgs e)
-        {
-            cts?.Cancel(false);
-        }
+        private void _gridControl_Disposed(object sender, EventArgs e) => cts?.Cancel(false);
 
         private CancellationTokenSource cts;
 
-      
-        public virtual Task<ICollection<T>> GetAllAsync(CancellationToken token)
-        {
-            return Task.FromResult<ICollection<T>>(null);
-        }
-     
+
+        public virtual Task<ICollection<T>> GetAllAsync(CancellationToken token) => Task.FromResult<ICollection<T>>(null);
+
         public async void  DoRefresh()
         {
             gridView.ShowLoadingPanel();
             try
             {
                 cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
-                modelBindingSource.DataSource = await GetAllAsync(cts.Token);
+                var ds= await GetAllAsync(cts.Token);
+                modelBindingSource.DataSource = ds != null ? new List<T>(ds) : new List<T>() ;
             }
             catch (SwaggerException se)
             {
@@ -81,13 +76,10 @@ namespace IoT.Sharp.WinForm
             gridView.AddNewRow();
             gridView.ShowEditForm();
         }
-       
 
-        public void DoEdit()
-        {
-            gridView.ShowEditForm();
-        }
-       
+
+        public void DoEdit() => gridView.ShowEditForm();
+
         public void DoDelete()
         {
             if (XtraMessageBox.Show("是否确定删除所选数据", "删除", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -97,7 +89,7 @@ namespace IoT.Sharp.WinForm
         }
 
         private Guid NewID = Guid.Empty;
-        public virtual GridColumn ColumnKey { get; set; }
+      
 
         private void gridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
