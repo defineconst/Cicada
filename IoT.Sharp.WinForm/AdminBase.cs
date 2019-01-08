@@ -64,7 +64,15 @@ namespace IoT.Sharp.WinForm
             }
             catch (SwaggerException se)
             {
-                XtraMessageBox.Show(se.ToResult().msg);
+                var result = se.ToResult();
+                if (result == null)
+                {
+                    XtraMessageBox.Show( se.Message);
+                }
+                else
+                {
+                    XtraMessageBox.Show(se.ToResult().msg);
+                }
             }
             gridView.HideLoadingPanel();
         }
@@ -122,7 +130,7 @@ namespace IoT.Sharp.WinForm
                 if (e.Row is T obj)
                 {
                     gridView.ShowLoadingPanel();
-                    cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+                    cts = new CancellationTokenSource(TimeSpan.FromSeconds(500));
                     if (NewID != Guid.Empty)
                     {
                         var o = await Post(obj, cts.Token);
@@ -136,7 +144,7 @@ namespace IoT.Sharp.WinForm
             }
             catch (SwaggerException se)
             {
-                XtraMessageBox.Show(se.Message + Environment.NewLine + se.ToResult().msg);
+                XtraMessageBox.Show(se.Message + Environment.NewLine + se.ToResult()?.msg);
             }
             catch (Exception ex)
             {

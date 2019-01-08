@@ -34,8 +34,8 @@ namespace IoT.Sharp.WinForm
             {
                 try
                 {
-                    var result = await Client.LoginAsync(new Sdk.CSharp.LoginDto() { Email = username, Password = password });
-                    if (result.StatusCode == 200)
+                    var result = await Client.LoginAsync( username, password );
+                    if (result.Succeeded)
                     {
                         DialogResult = DialogResult.OK;
                     }
@@ -106,24 +106,20 @@ namespace IoT.Sharp.WinForm
                 try
                 {
                     var Client = SdkClient.Create<Sdk.CSharp.InstallerClient>();
-                    var fr = await Client.CheckInstallationAsync();
-                    if (fr.StatusCode == 200)
+                    var fr = await Client.InstanceAsync();
+                    this.Invoke((MethodInvoker)delegate
                     {
-                        var result = await fr.ToResultAsync<ApiResult>();
-                        this.Invoke((MethodInvoker)delegate
+                        if (fr.Installed)
                         {
-                            if (result.code == 0 && result.data.Value<bool>("installed"))
-                            {
-                                btnLogin.Enabled = true;
-                                lblInfo.Text = "服务器就绪";
-                            }
-                            else
-                            {
-                                lblInfo.Text = result.msg;
-                                DialogResult = DialogResult.No;
-                            }
-                        });
-                    }
+                            btnLogin.Enabled = true;
+                            lblInfo.Text = "服务器就绪";
+                            lblVersion.Text = fr.Version;
+                        }
+                        else
+                        {
+                            DialogResult = DialogResult.No;
+                        }
+                    });
                 }
                 catch (SwaggerException se)
                 {

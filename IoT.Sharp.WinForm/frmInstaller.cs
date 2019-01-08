@@ -21,7 +21,6 @@ namespace IoT.Sharp.WinForm
 
         private void btnInstall_ClickAsync(object sender, EventArgs e)
         {
-
             var dot = installDtoBindingSource.Current as InstallDto;
             if (dot != null)
             {
@@ -32,24 +31,12 @@ namespace IoT.Sharp.WinForm
                    {
                        var Client = SdkClient.Create<InstallerClient>();
                        var result = await Client.InstallAsync(dot);
-                       Invoke((MethodInvoker)async delegate
+                       Invoke((MethodInvoker)  delegate
                        {
-                           if (result.StatusCode == 200)
+                           btnInstall.Enabled = true;
+                           if (result.Installed)
                            {
-                               var re =await result.ToResultAsync<ApiResult>();
-                               if (re.code == 0)
-                               {
-                                   DialogResult = DialogResult.OK;
-                               }
-                               else
-                               {
-                                   btnInstall.Enabled = true;
-                                   libinfo.Text = re.msg;
-                               }
-                           }
-                           else
-                           {
-                               libinfo.Text =(await result.ToResultAsync<ApiResult>()).msg;
+                               DialogResult = DialogResult.OK;
                            }
                        });
                    }
