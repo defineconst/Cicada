@@ -274,6 +274,7 @@
             this.btnUserAdmin.Caption = "账号管理";
             this.btnUserAdmin.Id = 20;
             this.btnUserAdmin.Name = "btnUserAdmin";
+            this.btnUserAdmin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUserAdmin_ItemClick);
             // 
             // ribbonPage1
             // 

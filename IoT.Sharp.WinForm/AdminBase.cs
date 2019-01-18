@@ -58,7 +58,7 @@ namespace IoT.Sharp.WinForm
             gridView.ShowLoadingPanel();
             try
             {
-                cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+                cts = new CancellationTokenSource(TimeSpan.FromSeconds(115));
                 var ds= await GetAllAsync(cts.Token);
                 modelBindingSource.DataSource = ds != null ? new List<T>(ds) : new List<T>() ;
             }

@@ -41,6 +41,7 @@
             // 
             // txtUserName
             // 
+            this.txtUserName.EditValue = "iotmaster@iotsharp.net";
             this.txtUserName.Location = new System.Drawing.Point(171, 118);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserName.Name = "txtUserName";

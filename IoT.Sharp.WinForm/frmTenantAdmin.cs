@@ -57,7 +57,7 @@ namespace IoT.Sharp.WinForm
     
         public override Task<ICollection<Tenant>> GetAllAsync(CancellationToken token)
         {
-            return Client.GetTenantAllAsync(token);
+            return Client.GetTenantAllAsync();
         }
         public override Task<Tenant> Delete(Tenant obj, CancellationToken token)
         {
