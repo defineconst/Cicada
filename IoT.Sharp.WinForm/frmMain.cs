@@ -22,7 +22,6 @@ namespace IoT.Sharp.WinForm
             var result = fl.ShowDialog(this);
             if (result == DialogResult.OK)
             {
-                
             }
             else if (result== DialogResult.No)
             {
@@ -34,17 +33,15 @@ namespace IoT.Sharp.WinForm
             }
             else if (result == DialogResult.Cancel)
             {
-                
             }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
         }
-        void SetMenuAndBar()
-        {
 
+        private void SetMenuAndBar()
+        {
         }
 
         private void btnExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

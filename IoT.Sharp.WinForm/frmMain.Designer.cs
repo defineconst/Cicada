@@ -38,8 +38,6 @@
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnTen = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCoumter = new DevExpress.XtraBars.BarButtonItem();
-            this.btnUserAdmin = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -49,6 +47,7 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManagerEX1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManagerEX(this.components);
+            this.btnDevices = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManagerEX1)).BeginInit();
@@ -64,13 +63,12 @@
             this.btnLogout,
             this.barButtonItem1,
             this.btnTen,
-            this.btnCoumter,
-            this.btnUserAdmin,
             this.skinRibbonGalleryBarItem1,
-            this.skinPaletteRibbonGalleryBarItem1});
+            this.skinPaletteRibbonGalleryBarItem1,
+            this.btnDevices});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 11;
+            this.ribbonControl1.MaxItemId = 12;
             this.ribbonControl1.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -130,20 +128,6 @@
             this.btnTen.Name = "btnTen";
             this.btnTen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTen_ItemClick);
             // 
-            // btnCoumter
-            // 
-            this.btnCoumter.Caption = "客户管理";
-            this.btnCoumter.Id = 7;
-            this.btnCoumter.ImageOptions.SvgImage = global::IoT.Sharp.WinForm.Properties.Resources.bo_department;
-            this.btnCoumter.Name = "btnCoumter";
-            // 
-            // btnUserAdmin
-            // 
-            this.btnUserAdmin.Caption = "用户管理";
-            this.btnUserAdmin.Id = 8;
-            this.btnUserAdmin.ImageOptions.SvgImage = global::IoT.Sharp.WinForm.Properties.Resources.bo_person;
-            this.btnUserAdmin.Name = "btnUserAdmin";
-            // 
             // skinRibbonGalleryBarItem1
             // 
             this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
@@ -175,8 +159,7 @@
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.btnTen);
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnCoumter);
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnUserAdmin);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnDevices);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "管理";
             // 
@@ -205,6 +188,13 @@
             this.xtraTabbedMdiManagerEX1.BackImage = global::IoT.Sharp.WinForm.Properties.Resources.backgroupimage;
             this.xtraTabbedMdiManagerEX1.BigLogo = global::IoT.Sharp.WinForm.Properties.Resources.logo;
             this.xtraTabbedMdiManagerEX1.MdiParent = this;
+            // 
+            // btnDevices
+            // 
+            this.btnDevices.Caption = "设备管理";
+            this.btnDevices.Id = 11;
+            this.btnDevices.ImageOptions.SvgImage = global::IoT.Sharp.WinForm.Properties.Resources.charttype_radarrangearea;
+            this.btnDevices.Name = "btnDevices";
             // 
             // frmMain
             // 
@@ -245,11 +235,10 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem btnTen;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
-        private DevExpress.XtraBars.BarButtonItem btnCoumter;
-        private DevExpress.XtraBars.BarButtonItem btnUserAdmin;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
         private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem btnDevices;
     }
 }
 

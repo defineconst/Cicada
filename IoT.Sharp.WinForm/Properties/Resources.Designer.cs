@@ -123,6 +123,16 @@ namespace IoT.Sharp.WinForm.Properties {
         /// <summary>
         ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage charttype_radarrangearea {
+            get {
+                object obj = ResourceManager.GetObject("charttype_radarrangearea", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage close {
             get {
                 object obj = ResourceManager.GetObject("close", resourceCulture);

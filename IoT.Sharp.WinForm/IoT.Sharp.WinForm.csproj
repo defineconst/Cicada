@@ -111,6 +111,12 @@
     <Compile Include="AdminBase.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmDevices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDevices.Designer.cs">
+      <DependentUpon>frmDevices.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInstaller.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </Compile>
     <EmbeddedResource Include="frmAboutBox.resx">
       <DependentUpon>frmAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDevices.resx">
+      <DependentUpon>frmDevices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerAdmin.resx">
       <DependentUpon>frmCustomerAdmin.cs</DependentUpon>
@@ -271,6 +280,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\allowuserstoeditranges.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charttype_radarrangearea.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
