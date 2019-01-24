@@ -23,10 +23,10 @@ namespace IoT.Sharp.WinForm
             if (result == DialogResult.OK)
             {
             }
-            else if (result== DialogResult.No)
+            else if (result == DialogResult.No)
             {
                 frmInstaller installer = new frmInstaller();
-                if (installer.ShowDialog()== DialogResult.OK)
+                if (installer.ShowDialog() == DialogResult.OK)
                 {
                     btnLogin.PerformClick();
                 }
@@ -52,6 +52,15 @@ namespace IoT.Sharp.WinForm
         private void btnTen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.ShowMdiChildren<frmTenantAdmin>();
+        }
+
+        private void btnDevices_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.ShowMdiChildren<frmDevices>(opt =>
+            {
+                var cust = Sdk.CSharp.SdkClient.Create<Sdk.CSharp.DevicesClient>();
+                opt.Customer = Sdk.CSharp.SdkClient.MyInfo.Customer;
+            });
         }
     }
 }

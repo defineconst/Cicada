@@ -30,19 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.deviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCountry = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colProvince = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCity = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colStreet = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colZipCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTenant = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiPrintPreview = new DevExpress.XtraBars.BarButtonItem();
             this.bsiRecordsCount = new DevExpress.XtraBars.BarStaticItem();
@@ -54,15 +43,22 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTenant = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAttributeLatest = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTelemetryLatest = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deviceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl
             // 
-            this.gridControl.DataSource = this.customerBindingSource;
+            this.gridControl.DataSource = this.deviceBindingSource;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControl.Location = new System.Drawing.Point(0, 183);
@@ -75,9 +71,9 @@
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
             // 
-            // customerBindingSource
+            // deviceBindingSource
             // 
-            this.customerBindingSource.DataSource = typeof(IoT.Sharp.Sdk.CSharp.Customer);
+            this.deviceBindingSource.DataSource = typeof(IoT.Sharp.Sdk.CSharp.Device);
             // 
             // gridView
             // 
@@ -85,118 +81,17 @@
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
             this.colName,
-            this.colEmail,
-            this.colPhone,
-            this.colCountry,
-            this.colProvince,
-            this.colCity,
-            this.colStreet,
-            this.colAddress,
-            this.colZipCode,
-            this.colTenant});
+            this.colType,
+            this.colTenant,
+            this.colCustomer,
+            this.colAttributeLatest,
+            this.colTelemetryLatest});
             this.gridView.DetailHeight = 485;
             this.gridView.FixedLineWidth = 3;
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             this.gridView.OptionsBehavior.Editable = false;
             this.gridView.OptionsBehavior.ReadOnly = true;
-            // 
-            // colId
-            // 
-            this.colId.FieldName = "Id";
-            this.colId.MinWidth = 25;
-            this.colId.Name = "colId";
-            this.colId.Visible = true;
-            this.colId.VisibleIndex = 0;
-            this.colId.Width = 94;
-            // 
-            // colName
-            // 
-            this.colName.FieldName = "Name";
-            this.colName.MinWidth = 25;
-            this.colName.Name = "colName";
-            this.colName.Visible = true;
-            this.colName.VisibleIndex = 1;
-            this.colName.Width = 94;
-            // 
-            // colEmail
-            // 
-            this.colEmail.FieldName = "Email";
-            this.colEmail.MinWidth = 25;
-            this.colEmail.Name = "colEmail";
-            this.colEmail.Visible = true;
-            this.colEmail.VisibleIndex = 2;
-            this.colEmail.Width = 94;
-            // 
-            // colPhone
-            // 
-            this.colPhone.FieldName = "Phone";
-            this.colPhone.MinWidth = 25;
-            this.colPhone.Name = "colPhone";
-            this.colPhone.Visible = true;
-            this.colPhone.VisibleIndex = 3;
-            this.colPhone.Width = 94;
-            // 
-            // colCountry
-            // 
-            this.colCountry.FieldName = "Country";
-            this.colCountry.MinWidth = 25;
-            this.colCountry.Name = "colCountry";
-            this.colCountry.Visible = true;
-            this.colCountry.VisibleIndex = 4;
-            this.colCountry.Width = 94;
-            // 
-            // colProvince
-            // 
-            this.colProvince.FieldName = "Province";
-            this.colProvince.MinWidth = 25;
-            this.colProvince.Name = "colProvince";
-            this.colProvince.Visible = true;
-            this.colProvince.VisibleIndex = 5;
-            this.colProvince.Width = 94;
-            // 
-            // colCity
-            // 
-            this.colCity.FieldName = "City";
-            this.colCity.MinWidth = 25;
-            this.colCity.Name = "colCity";
-            this.colCity.Visible = true;
-            this.colCity.VisibleIndex = 6;
-            this.colCity.Width = 94;
-            // 
-            // colStreet
-            // 
-            this.colStreet.FieldName = "Street";
-            this.colStreet.MinWidth = 25;
-            this.colStreet.Name = "colStreet";
-            this.colStreet.Visible = true;
-            this.colStreet.VisibleIndex = 7;
-            this.colStreet.Width = 94;
-            // 
-            // colAddress
-            // 
-            this.colAddress.FieldName = "Address";
-            this.colAddress.MinWidth = 25;
-            this.colAddress.Name = "colAddress";
-            this.colAddress.Visible = true;
-            this.colAddress.VisibleIndex = 8;
-            this.colAddress.Width = 94;
-            // 
-            // colZipCode
-            // 
-            this.colZipCode.FieldName = "ZipCode";
-            this.colZipCode.MinWidth = 25;
-            this.colZipCode.Name = "colZipCode";
-            this.colZipCode.Visible = true;
-            this.colZipCode.VisibleIndex = 9;
-            this.colZipCode.Width = 94;
-            // 
-            // colTenant
-            // 
-            this.colTenant.FieldName = "Tenant";
-            this.colTenant.MinWidth = 25;
-            this.colTenant.Name = "colTenant";
-            this.colTenant.Width = 94;
             // 
             // ribbonControl
             // 
@@ -304,6 +199,69 @@
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1053, 37);
             // 
+            // colId
+            // 
+            this.colId.FieldName = "Id";
+            this.colId.MinWidth = 25;
+            this.colId.Name = "colId";
+            this.colId.Visible = true;
+            this.colId.VisibleIndex = 0;
+            this.colId.Width = 94;
+            // 
+            // colName
+            // 
+            this.colName.FieldName = "Name";
+            this.colName.MinWidth = 25;
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 1;
+            this.colName.Width = 94;
+            // 
+            // colType
+            // 
+            this.colType.FieldName = "Type";
+            this.colType.MinWidth = 25;
+            this.colType.Name = "colType";
+            this.colType.Visible = true;
+            this.colType.VisibleIndex = 2;
+            this.colType.Width = 94;
+            // 
+            // colTenant
+            // 
+            this.colTenant.FieldName = "Tenant";
+            this.colTenant.MinWidth = 25;
+            this.colTenant.Name = "colTenant";
+            this.colTenant.Visible = true;
+            this.colTenant.VisibleIndex = 3;
+            this.colTenant.Width = 94;
+            // 
+            // colCustomer
+            // 
+            this.colCustomer.FieldName = "Customer";
+            this.colCustomer.MinWidth = 25;
+            this.colCustomer.Name = "colCustomer";
+            this.colCustomer.Visible = true;
+            this.colCustomer.VisibleIndex = 4;
+            this.colCustomer.Width = 94;
+            // 
+            // colAttributeLatest
+            // 
+            this.colAttributeLatest.FieldName = "AttributeLatest";
+            this.colAttributeLatest.MinWidth = 25;
+            this.colAttributeLatest.Name = "colAttributeLatest";
+            this.colAttributeLatest.Visible = true;
+            this.colAttributeLatest.VisibleIndex = 5;
+            this.colAttributeLatest.Width = 94;
+            // 
+            // colTelemetryLatest
+            // 
+            this.colTelemetryLatest.FieldName = "TelemetryLatest";
+            this.colTelemetryLatest.MinWidth = 25;
+            this.colTelemetryLatest.Name = "colTelemetryLatest";
+            this.colTelemetryLatest.Visible = true;
+            this.colTelemetryLatest.VisibleIndex = 6;
+            this.colTelemetryLatest.Width = 94;
+            // 
             // frmDevices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -318,7 +276,7 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Load += new System.EventHandler(this.frmCustomerAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deviceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             this.ResumeLayout(false);
@@ -341,17 +299,13 @@
         private DevExpress.XtraBars.BarButtonItem bbiEdit;
         private DevExpress.XtraBars.BarButtonItem bbiDelete;
         private DevExpress.XtraBars.BarButtonItem bbiRefresh;
-        private System.Windows.Forms.BindingSource customerBindingSource;
+        private System.Windows.Forms.BindingSource deviceBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
-        private DevExpress.XtraGrid.Columns.GridColumn colEmail;
-        private DevExpress.XtraGrid.Columns.GridColumn colPhone;
-        private DevExpress.XtraGrid.Columns.GridColumn colCountry;
-        private DevExpress.XtraGrid.Columns.GridColumn colProvince;
-        private DevExpress.XtraGrid.Columns.GridColumn colCity;
-        private DevExpress.XtraGrid.Columns.GridColumn colStreet;
-        private DevExpress.XtraGrid.Columns.GridColumn colAddress;
-        private DevExpress.XtraGrid.Columns.GridColumn colZipCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colType;
         private DevExpress.XtraGrid.Columns.GridColumn colTenant;
+        private DevExpress.XtraGrid.Columns.GridColumn colCustomer;
+        private DevExpress.XtraGrid.Columns.GridColumn colAttributeLatest;
+        private DevExpress.XtraGrid.Columns.GridColumn colTelemetryLatest;
     }
 }

@@ -20,7 +20,6 @@ namespace IoT.Sharp.WinForm
             InitializeComponent();
         }
 
-
         private async void btnLogin_ClickAsync(object sender, EventArgs e)
         {
             var Client = SdkClient.Create<Sdk.CSharp.AccountClient>();
@@ -34,7 +33,7 @@ namespace IoT.Sharp.WinForm
             {
                 try
                 {
-                    var result = await Client.LoginAsync( username, password );
+                    var result = await Client.LoginAsync(username, password);
                     if (result.Succeeded)
                     {
                         DialogResult = DialogResult.OK;
@@ -47,18 +46,19 @@ namespace IoT.Sharp.WinForm
                 catch (SwaggerException sex)
                 {
                     var result = sex.ToResult();
-                    lblInfo.Text = $"错误代码:{result.code},错误:{result.msg}";
+                    lblInfo.Text = $"错误代码:{result.Code},错误:{result.Msg}";
                 }
                 catch (Exception)
                 {
-
                     throw;
                 }
             }
         }
+
         private bool _isMouseDown;
         private Point _formLocation; //form的location
         private Point _mouseOffset;
+
         private void frmLogin_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -93,7 +93,8 @@ namespace IoT.Sharp.WinForm
             DialogResult = DialogResult.Cancel;
         }
 
-        CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+        private CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+
         private void frmLogin_Load(object sender, EventArgs e)
         {
             lblVersion.Text = "V" + AppUtils.AssemblyVersion;
@@ -135,7 +136,6 @@ namespace IoT.Sharp.WinForm
                         lblInfo.Text = ex.Message;
                     });
                 }
-
             }, cts.Token);
         }
 
@@ -143,7 +143,5 @@ namespace IoT.Sharp.WinForm
         {
             AppUtils.ShowFileByExplorer("http://www.iotsharp.net/");
         }
-
-
     }
 }

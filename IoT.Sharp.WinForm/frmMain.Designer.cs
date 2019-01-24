@@ -40,6 +40,7 @@
             this.btnTen = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
+            this.btnDevices = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -47,7 +48,6 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManagerEX1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManagerEX(this.components);
-            this.btnDevices = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManagerEX1)).BeginInit();
@@ -140,6 +140,14 @@
             this.skinPaletteRibbonGalleryBarItem1.Id = 10;
             this.skinPaletteRibbonGalleryBarItem1.Name = "skinPaletteRibbonGalleryBarItem1";
             // 
+            // btnDevices
+            // 
+            this.btnDevices.Caption = "设备管理";
+            this.btnDevices.Id = 11;
+            this.btnDevices.ImageOptions.SvgImage = global::IoT.Sharp.WinForm.Properties.Resources.charttype_radarrangearea;
+            this.btnDevices.Name = "btnDevices";
+            this.btnDevices.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDevices_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -188,13 +196,6 @@
             this.xtraTabbedMdiManagerEX1.BackImage = global::IoT.Sharp.WinForm.Properties.Resources.backgroupimage;
             this.xtraTabbedMdiManagerEX1.BigLogo = global::IoT.Sharp.WinForm.Properties.Resources.logo;
             this.xtraTabbedMdiManagerEX1.MdiParent = this;
-            // 
-            // btnDevices
-            // 
-            this.btnDevices.Caption = "设备管理";
-            this.btnDevices.Id = 11;
-            this.btnDevices.ImageOptions.SvgImage = global::IoT.Sharp.WinForm.Properties.Resources.charttype_radarrangearea;
-            this.btnDevices.Name = "btnDevices";
             // 
             // frmMain
             // 

@@ -48,13 +48,11 @@ namespace IoT.Sharp.WinForm
 
         public override Task<FileResponse> Put(Customer obj, CancellationToken token)
         {
-            obj.Tenant = Tenant;
             return Client.PutCustomerAsync(obj.Id, obj, token);
         }
 
         public override Task<Customer> Post(Customer obj, CancellationToken token)
         {
-            obj.Tenant = Tenant;
             return Client.PostCustomerAsync(obj, token);
         }
 

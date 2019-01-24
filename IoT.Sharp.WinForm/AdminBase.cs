@@ -12,16 +12,17 @@ using System.Windows.Forms;
 
 namespace IoT.Sharp.WinForm
 {
-    public class AdminBase<T>: DevExpress.XtraBars.Ribbon.RibbonForm where T:class
+    public class AdminBase<T> : DevExpress.XtraBars.Ribbon.RibbonForm where T : class
     {
-        GridControl gridControl;
-        GridView gridView;
-        BindingSource modelBindingSource;
-        GridColumn ColumnKey;
-        public void InitializeGridView(GridView _gridView, GridColumn  column)
+        private GridControl gridControl;
+        private GridView gridView;
+        private BindingSource modelBindingSource;
+        private GridColumn ColumnKey;
+
+        public void InitializeGridView(GridView _gridView, GridColumn column)
         {
             gridControl = _gridView?.GridControl;
-            if (gridControl != null  && !gridControl.IsDisposed && !gridControl.IsDesignMode)
+            if (gridControl != null && !gridControl.IsDisposed && !gridControl.IsDesignMode)
             {
                 modelBindingSource = gridControl.DataSource as BindingSource;
                 ColumnKey = column;
@@ -39,9 +40,9 @@ namespace IoT.Sharp.WinForm
                 gridView.OptionsEditForm.EditFormColumnCount = 1;
                 gridView.OptionsEditForm.PopupEditFormWidth = 520;
                 gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-
             }
         }
+
         public T FocusedRow => gridView.GetFocusedRow() as T;
 
         private void GridControl_Load(object sender, EventArgs e) => DoRefresh();
@@ -50,41 +51,37 @@ namespace IoT.Sharp.WinForm
 
         private CancellationTokenSource cts;
 
-
         public virtual Task<ICollection<T>> GetAllAsync(CancellationToken token) => Task.FromResult<ICollection<T>>(null);
 
-        public async void  DoRefresh()
+        public async void DoRefresh()
         {
             gridView.ShowLoadingPanel();
             try
             {
                 cts = new CancellationTokenSource(TimeSpan.FromSeconds(115));
-                var ds= await GetAllAsync(cts.Token);
-                modelBindingSource.DataSource = ds != null ? new List<T>(ds) : new List<T>() ;
+                var ds = await GetAllAsync(cts.Token);
+                modelBindingSource.DataSource = ds != null ? new List<T>(ds) : new List<T>();
             }
             catch (SwaggerException se)
             {
                 var result = se.ToResult();
                 if (result == null)
                 {
-                    XtraMessageBox.Show( se.Message);
+                    XtraMessageBox.Show(se.Message);
                 }
                 else
                 {
-                    XtraMessageBox.Show(se.ToResult().msg);
+                    XtraMessageBox.Show(se.ToResult().Msg);
                 }
             }
             gridView.HideLoadingPanel();
         }
 
-
-      
-        public  void DoNew()
+        public void DoNew()
         {
             gridView.AddNewRow();
             gridView.ShowEditForm();
         }
-
 
         public void DoEdit() => gridView.ShowEditForm();
 
@@ -97,7 +94,6 @@ namespace IoT.Sharp.WinForm
         }
 
         private Guid NewID = Guid.Empty;
-      
 
         private void gridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
@@ -107,10 +103,8 @@ namespace IoT.Sharp.WinForm
 
         private void gridView_EditFormPrepared(object sender, DevExpress.XtraGrid.Views.Grid.EditFormPreparedEventArgs e)
         {
-       
             var editor = e.Panel.Parent as Form;
             editor.StartPosition = FormStartPosition.CenterScreen;
-    
         }
 
         public virtual Task<T> Post(T obj, CancellationToken token)
@@ -144,7 +138,7 @@ namespace IoT.Sharp.WinForm
             }
             catch (SwaggerException se)
             {
-                XtraMessageBox.Show(se.Message + Environment.NewLine + se.ToResult()?.msg);
+                XtraMessageBox.Show(se.Message + Environment.NewLine + se.ToResult()?.Msg);
             }
             catch (Exception ex)
             {
@@ -170,7 +164,7 @@ namespace IoT.Sharp.WinForm
                 }
                 catch (SwaggerException se)
                 {
-                    XtraMessageBox.Show(se.Message + Environment.NewLine + se.ToResult().msg);
+                    XtraMessageBox.Show(se.Message + Environment.NewLine + se.ToResult().Msg);
                 }
                 catch (Exception ex)
                 {
@@ -179,7 +173,5 @@ namespace IoT.Sharp.WinForm
                 gridView.HideLoadingPanel();
             }
         }
-
-       
     }
 }

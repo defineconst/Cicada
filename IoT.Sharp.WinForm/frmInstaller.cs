@@ -31,20 +31,20 @@ namespace IoT.Sharp.WinForm
                    {
                        var Client = SdkClient.Create<InstallerClient>();
                        var result = await Client.InstallAsync(dot);
-                       Invoke((MethodInvoker)  delegate
-                       {
-                           btnInstall.Enabled = true;
-                           if (result.Installed)
-                           {
-                               DialogResult = DialogResult.OK;
-                           }
-                       });
+                       Invoke((MethodInvoker)delegate
+                     {
+                         btnInstall.Enabled = true;
+                         if (result.Installed)
+                         {
+                             DialogResult = DialogResult.OK;
+                         }
+                     });
                    }
                    catch (SwaggerException se)
                    {
                        this.Invoke((MethodInvoker)delegate
                          {
-                             libinfo.Text = se.ToResult().msg;
+                             libinfo.Text = se.ToResult().Msg;
                              btnInstall.Enabled = true;
                          });
                    }
