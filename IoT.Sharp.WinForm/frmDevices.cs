@@ -70,7 +70,7 @@ namespace IoT.Sharp.WinForm
 
         private void frmCustomerAdmin_Load(object sender, EventArgs e)
         {
-            InitializeGridView(gridView, colId);
+            InitializeGridView(gridView1, colId);
             Client = SdkClient.Create<DevicesClient>();
         }
 
@@ -81,6 +81,75 @@ namespace IoT.Sharp.WinForm
 
         private void btnUserAdmin_ItemClick(object sender, ItemClickEventArgs e)
         {
+        }
+
+        private async void btnAttTest_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var dev = SdkClient.Create<DevicesClient>();
+            var dis = new Dictionary<string, object>();
+            dis.Add("boolvalue", true);
+            dis.Add("jsonvalue", new { a = 1, b = "sss", c = false, e = DateTime.Now });
+            dis.Add("longvalue", 2342343L);
+            dis.Add("Doublevalue", 2332.322);
+            await dev.AttributeAsync(txtToken.EditValue.ToString(), dis);
+            await ReloadLatest();
+        }
+
+        private async void btnGetToken_ItemClickAsync(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                var row = FocusedRow;
+                if (row != null)
+                {
+                    var dev = SdkClient.Create<DevicesClient>();
+                    var ids = await dev.GetIdentityAsync(row.Id);
+                    txtToken.EditValue = ids.IdentityId;
+                    XtraMessageBox.Show(ids.ToJson());
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void deviceBindingSource_CurrentChangedAsync(object sender, EventArgs e)
+        {
+            btnGetToken.PerformClick();
+            await ReloadLatest();
+        }
+
+        private async Task ReloadLatest()
+        {
+            try
+            {
+                var row = FocusedRow;
+                if (row != null)
+                {
+                    var dev = SdkClient.Create<DevicesClient>();
+                    var al = await dev.GetAttributeLatestAsync(row.Id);
+                    var tl = await dev.GetTelemetryLatestAsync(row.Id);
+                    attributeLatestBindingSource.DataSource = al;
+                    telemetryLatestBindingSource.DataSource = tl;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private async void btnTTest_ItemClickAsync(object sender, ItemClickEventArgs e)
+        {
+            var dev = SdkClient.Create<DevicesClient>();
+            var dis = new Dictionary<string, object>();
+            dis.Add("boolvalue", true);
+            dis.Add("jsonvalue", new { a = 1, b = "sss", c = false, e = DateTime.Now });
+            dis.Add("longvalue", 2342343L);
+            dis.Add("Doublevalue", 2332.322);
+            await dev.TelemetryAsync(txtToken.EditValue.ToString(), dis);
+            await ReloadLatest();
         }
     }
 }

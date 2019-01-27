@@ -1,0 +1,11 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_1">
+  <path d="M15,1H1C0.5,1,0,1.5,0,2v12c0,0.5,0.5,1,1,1h14c0.5,0,1-0.5,1-1V2C16,1.5,15.5,1,15,1z M15,14H1V2h14V14z" fill="#727272" class="Black" />
+  <path d="M0,5V2c0-0.5,0.5-1,1-1h14c0.6,0,1,0.5,1,1v3H0z" fill="#039C23" class="Green" />
+  <g opacity="0.6" id="Layer_2" class="st0">
+    <rect x="1" y="2" width="14" height="2" rx="0" ry="0" fill="#FFFFFF" opacity="0.6" class="White" />
+  </g>
+  <rect x="1" y="5" width="14" height="9" rx="0" ry="0" fill="#FFFFFF" class="White" />
+  <path d="M5,12V7h1v5H5z" fill="#727272" class="Black" />
+  <path d="M11,12h-1l0-0.6C9.8,11.6,9.5,12,8.7,12c-0.5,0-0.9-0.2-1.2-0.5C7.2,11.2,7,10.7,7,10.1C7,9.5,7.2,9,7.5,8.7  c0.3-0.3,0.7-0.5,1.2-0.5s0.9,0.2,1.2,0.5V7H11V12z M8.1,10.1c0,0.4,0,1.2,0.9,1.2c0.8,0,0.9-0.8,0.9-1.1C9.9,9.8,9.8,9,9,9  C8.3,9,8.1,9.7,8.1,10.1z" fill="#727272" class="Black" />
+</svg>

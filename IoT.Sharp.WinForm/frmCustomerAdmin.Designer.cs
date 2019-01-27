@@ -32,7 +32,6 @@
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,7 +41,6 @@
             this.colStreet = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colZipCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTenant = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiPrintPreview = new DevExpress.XtraBars.BarButtonItem();
             this.bsiRecordsCount = new DevExpress.XtraBars.BarStaticItem();
@@ -55,6 +53,7 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -84,7 +83,6 @@
             // 
             this.gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colId,
             this.colName,
             this.colEmail,
             this.colPhone,
@@ -94,7 +92,7 @@
             this.colStreet,
             this.colAddress,
             this.colZipCode,
-            this.colTenant});
+            this.colId});
             this.gridView.DetailHeight = 485;
             this.gridView.FixedLineWidth = 3;
             this.gridView.GridControl = this.gridControl;
@@ -102,102 +100,95 @@
             this.gridView.OptionsBehavior.Editable = false;
             this.gridView.OptionsBehavior.ReadOnly = true;
             // 
-            // colId
-            // 
-            this.colId.FieldName = "Id";
-            this.colId.MinWidth = 25;
-            this.colId.Name = "colId";
-            this.colId.Visible = true;
-            this.colId.VisibleIndex = 0;
-            this.colId.Width = 94;
-            // 
             // colName
             // 
+            this.colName.Caption = "名称";
             this.colName.FieldName = "Name";
             this.colName.MinWidth = 25;
             this.colName.Name = "colName";
             this.colName.Visible = true;
-            this.colName.VisibleIndex = 1;
+            this.colName.VisibleIndex = 0;
             this.colName.Width = 94;
             // 
             // colEmail
             // 
+            this.colEmail.Caption = "邮箱";
             this.colEmail.FieldName = "Email";
             this.colEmail.MinWidth = 25;
             this.colEmail.Name = "colEmail";
             this.colEmail.Visible = true;
-            this.colEmail.VisibleIndex = 2;
+            this.colEmail.VisibleIndex = 1;
             this.colEmail.Width = 94;
             // 
             // colPhone
             // 
+            this.colPhone.Caption = "联系方式";
             this.colPhone.FieldName = "Phone";
             this.colPhone.MinWidth = 25;
             this.colPhone.Name = "colPhone";
             this.colPhone.Visible = true;
-            this.colPhone.VisibleIndex = 3;
+            this.colPhone.VisibleIndex = 2;
             this.colPhone.Width = 94;
             // 
             // colCountry
             // 
+            this.colCountry.Caption = "国家";
             this.colCountry.FieldName = "Country";
             this.colCountry.MinWidth = 25;
             this.colCountry.Name = "colCountry";
             this.colCountry.Visible = true;
-            this.colCountry.VisibleIndex = 4;
+            this.colCountry.VisibleIndex = 3;
             this.colCountry.Width = 94;
             // 
             // colProvince
             // 
+            this.colProvince.Caption = "省份\\州";
             this.colProvince.FieldName = "Province";
             this.colProvince.MinWidth = 25;
             this.colProvince.Name = "colProvince";
             this.colProvince.Visible = true;
-            this.colProvince.VisibleIndex = 5;
+            this.colProvince.VisibleIndex = 4;
             this.colProvince.Width = 94;
             // 
             // colCity
             // 
+            this.colCity.Caption = "城市";
             this.colCity.FieldName = "City";
             this.colCity.MinWidth = 25;
             this.colCity.Name = "colCity";
             this.colCity.Visible = true;
-            this.colCity.VisibleIndex = 6;
+            this.colCity.VisibleIndex = 5;
             this.colCity.Width = 94;
             // 
             // colStreet
             // 
+            this.colStreet.Caption = "街道";
             this.colStreet.FieldName = "Street";
             this.colStreet.MinWidth = 25;
             this.colStreet.Name = "colStreet";
             this.colStreet.Visible = true;
-            this.colStreet.VisibleIndex = 7;
+            this.colStreet.VisibleIndex = 6;
             this.colStreet.Width = 94;
             // 
             // colAddress
             // 
+            this.colAddress.Caption = "门牌号";
             this.colAddress.FieldName = "Address";
             this.colAddress.MinWidth = 25;
             this.colAddress.Name = "colAddress";
             this.colAddress.Visible = true;
-            this.colAddress.VisibleIndex = 8;
+            this.colAddress.VisibleIndex = 7;
             this.colAddress.Width = 94;
             // 
             // colZipCode
             // 
+            this.colZipCode.Caption = "邮编";
             this.colZipCode.FieldName = "ZipCode";
             this.colZipCode.MinWidth = 25;
             this.colZipCode.Name = "colZipCode";
             this.colZipCode.Visible = true;
-            this.colZipCode.VisibleIndex = 9;
+            this.colZipCode.VisibleIndex = 8;
             this.colZipCode.Width = 94;
-            // 
-            // colTenant
-            // 
-            this.colTenant.FieldName = "Tenant";
-            this.colTenant.MinWidth = 25;
-            this.colTenant.Name = "colTenant";
-            this.colTenant.Width = 94;
             // 
             // ribbonControl
             // 
@@ -225,7 +216,7 @@
             // 
             // bbiPrintPreview
             // 
-            this.bbiPrintPreview.Caption = "Print Preview";
+            this.bbiPrintPreview.Caption = "打印预览";
             this.bbiPrintPreview.Id = 14;
             this.bbiPrintPreview.ImageOptions.ImageUri.Uri = "Preview";
             this.bbiPrintPreview.Name = "bbiPrintPreview";
@@ -239,7 +230,7 @@
             // 
             // bbiNew
             // 
-            this.bbiNew.Caption = "New";
+            this.bbiNew.Caption = "新建";
             this.bbiNew.Id = 16;
             this.bbiNew.ImageOptions.ImageUri.Uri = "New";
             this.bbiNew.Name = "bbiNew";
@@ -247,7 +238,7 @@
             // 
             // bbiEdit
             // 
-            this.bbiEdit.Caption = "Edit";
+            this.bbiEdit.Caption = "编辑";
             this.bbiEdit.Id = 17;
             this.bbiEdit.ImageOptions.ImageUri.Uri = "Edit";
             this.bbiEdit.Name = "bbiEdit";
@@ -255,7 +246,7 @@
             // 
             // bbiDelete
             // 
-            this.bbiDelete.Caption = "Delete";
+            this.bbiDelete.Caption = "删除";
             this.bbiDelete.Id = 18;
             this.bbiDelete.ImageOptions.ImageUri.Uri = "Delete";
             this.bbiDelete.Name = "bbiDelete";
@@ -263,7 +254,7 @@
             // 
             // bbiRefresh
             // 
-            this.bbiRefresh.Caption = "Refresh";
+            this.bbiRefresh.Caption = "刷新";
             this.bbiRefresh.Id = 19;
             this.bbiRefresh.ImageOptions.ImageUri.Uri = "Refresh";
             this.bbiRefresh.Name = "bbiRefresh";
@@ -295,7 +286,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnUserAdmin);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
-            this.ribbonPageGroup1.Text = "Tasks";
+            this.ribbonPageGroup1.Text = "任务";
             // 
             // ribbonPageGroup2
             // 
@@ -303,7 +294,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiPrintPreview);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Text = "Print and Export";
+            this.ribbonPageGroup2.Text = "打印和预览";
             // 
             // ribbonStatusBar
             // 
@@ -313,6 +304,14 @@
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1053, 37);
+            // 
+            // colId
+            // 
+            this.colId.Caption = "Id";
+            this.colId.FieldName = "Id";
+            this.colId.MinWidth = 25;
+            this.colId.Name = "colId";
+            this.colId.Width = 94;
             // 
             // frmCustomerAdmin
             // 
@@ -353,7 +352,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiRefresh;
         private System.Windows.Forms.BindingSource customerBindingSource;
         private DevExpress.XtraBars.BarButtonItem btnUserAdmin;
-        private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colEmail;
         private DevExpress.XtraGrid.Columns.GridColumn colPhone;
@@ -363,6 +361,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colStreet;
         private DevExpress.XtraGrid.Columns.GridColumn colAddress;
         private DevExpress.XtraGrid.Columns.GridColumn colZipCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colTenant;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
     }
 }

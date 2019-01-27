@@ -138,7 +138,10 @@ namespace IoT.Sharp.WinForm
             }
             catch (SwaggerException se)
             {
-                XtraMessageBox.Show(se.Message + Environment.NewLine + se.ToResult()?.Msg);
+                if (se.StatusCode != 201)
+                {
+                    XtraMessageBox.Show(se.Message );
+                }
             }
             catch (Exception ex)
             {
@@ -164,7 +167,10 @@ namespace IoT.Sharp.WinForm
                 }
                 catch (SwaggerException se)
                 {
-                    XtraMessageBox.Show(se.Message + Environment.NewLine + se.ToResult().Msg);
+                    if (se.StatusCode != 201)
+                    {
+                        XtraMessageBox.Show(se.Message + Environment.NewLine + se.ToResult().Msg);
+                    }
                 }
                 catch (Exception ex)
                 {

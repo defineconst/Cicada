@@ -48,12 +48,20 @@ namespace IoT.Sharp.WinForm
 
         public override Task<FileResponse> Put(Customer obj, CancellationToken token)
         {
-            return Client.PutCustomerAsync(obj.Id, obj, token);
+            var jo = Newtonsoft.Json.Linq.JObject.FromObject(obj);
+            jo.Add(nameof(CustomerDto.TenantID), Tenant.Id);
+            var s = jo.ToObject<CustomerDto>();
+            s.TenantID = Tenant.Id;
+            return Client.PutCustomerAsync(obj.Id, s, token);
         }
 
         public override Task<Customer> Post(Customer obj, CancellationToken token)
         {
-            return Client.PostCustomerAsync(obj, token);
+            var jo = Newtonsoft.Json.Linq.JObject.FromObject(obj);
+            jo.Add(nameof(CustomerDto.TenantID), Tenant.Id);
+            var s = jo.ToObject<CustomerDto>();
+            s.TenantID = Tenant.Id;
+            return Client.PostCustomerAsync(s, token);
         }
 
         public override Task<ICollection<Customer>> GetAllAsync(CancellationToken token)
