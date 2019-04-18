@@ -295,8 +295,8 @@
     <None Include="Resources\guid.svg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IoTSharp.SDKs\IoTSharp.Sdk.CSharp\IoTSharp.Sdk.csproj">
-      <Project>{5d60ccbe-cecc-482a-8017-fe65d4249f17}</Project>
+    <ProjectReference Include="..\..\IoTSharp.SDKs\IoTSharp.Sdk.CSharp\IoTSharp.Sdk.csproj">
+      <Project>{c3ba5e01-c699-4a16-937e-f78bb9dd77fa}</Project>
       <Name>IoTSharp.Sdk</Name>
     </ProjectReference>
   </ItemGroup>
