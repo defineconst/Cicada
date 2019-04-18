@@ -9,3 +9,7 @@
 /IoT.Sharp.WinForm/bin/Release
 /IoT.Sharp.WinForm/obj/Release
 /IoT.Sharp.WinForm/publish
+/IoTSharp.Cicada/.vs
+/IoTSharp.Cicada/bin
+/IoTSharp.Cicada/obj
+/IoTSharp.Cicada/publish
