@@ -51,6 +51,7 @@
             this.btnGetToken = new DevExpress.XtraBars.BarButtonItem();
             this.txtToken = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.lblInfo = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -93,6 +94,7 @@
             this.colValue_Json1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValue_XML1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValue_Binary1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -112,6 +114,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.telemetryLatestBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl
@@ -198,10 +201,11 @@
             this.barButtonItem3,
             this.barButtonItem4,
             this.btnGetToken,
-            this.txtToken});
+            this.txtToken,
+            this.lblInfo});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl.MaxItemId = 30;
+            this.ribbonControl.MaxItemId = 31;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -318,6 +322,13 @@
             this.repositoryItemTextEdit2.AutoHeight = false;
             this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
             // 
+            // lblInfo
+            // 
+            this.lblInfo.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.lblInfo.Caption = "就绪";
+            this.lblInfo.Id = 30;
+            this.lblInfo.Name = "lblInfo";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -368,6 +379,7 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.bsiRecordsCount);
+            this.ribbonStatusBar.ItemLinks.Add(this.lblInfo);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 792);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
@@ -447,6 +459,8 @@
             this.gridControl1.MainView = this.gridView2;
             this.gridControl1.MenuManager = this.ribbonControl;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTimeEdit1});
             this.gridControl1.Size = new System.Drawing.Size(426, 278);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -476,6 +490,7 @@
             // 
             // colId1
             // 
+            this.colId1.Caption = "属性数据ID";
             this.colId1.FieldName = "Id";
             this.colId1.MinWidth = 25;
             this.colId1.Name = "colId1";
@@ -485,6 +500,7 @@
             // 
             // colKeyName
             // 
+            this.colKeyName.Caption = "属性键名";
             this.colKeyName.FieldName = "KeyName";
             this.colKeyName.MinWidth = 25;
             this.colKeyName.Name = "colKeyName";
@@ -494,6 +510,7 @@
             // 
             // colCatalog
             // 
+            this.colCatalog.Caption = "属性类别";
             this.colCatalog.FieldName = "Catalog";
             this.colCatalog.MinWidth = 25;
             this.colCatalog.Name = "colCatalog";
@@ -503,6 +520,7 @@
             // 
             // colType1
             // 
+            this.colType1.Caption = "属性数据类型";
             this.colType1.FieldName = "Type";
             this.colType1.MinWidth = 25;
             this.colType1.Name = "colType1";
@@ -512,6 +530,8 @@
             // 
             // colDateTime
             // 
+            this.colDateTime.Caption = "上传时间";
+            this.colDateTime.ColumnEdit = this.repositoryItemTimeEdit1;
             this.colDateTime.FieldName = "DateTime";
             this.colDateTime.MinWidth = 25;
             this.colDateTime.Name = "colDateTime";
@@ -521,6 +541,7 @@
             // 
             // colValue_Boolean
             // 
+            this.colValue_Boolean.Caption = "布尔值";
             this.colValue_Boolean.FieldName = "Value_Boolean";
             this.colValue_Boolean.MinWidth = 25;
             this.colValue_Boolean.Name = "colValue_Boolean";
@@ -530,6 +551,7 @@
             // 
             // colValue_String
             // 
+            this.colValue_String.Caption = "字符串值";
             this.colValue_String.FieldName = "Value_String";
             this.colValue_String.MinWidth = 25;
             this.colValue_String.Name = "colValue_String";
@@ -539,6 +561,7 @@
             // 
             // colValue_Long
             // 
+            this.colValue_Long.Caption = "长整型值";
             this.colValue_Long.FieldName = "Value_Long";
             this.colValue_Long.MinWidth = 25;
             this.colValue_Long.Name = "colValue_Long";
@@ -548,6 +571,7 @@
             // 
             // colValue_Double
             // 
+            this.colValue_Double.Caption = "双精度值";
             this.colValue_Double.FieldName = "Value_Double";
             this.colValue_Double.MinWidth = 25;
             this.colValue_Double.Name = "colValue_Double";
@@ -557,6 +581,7 @@
             // 
             // colValue_Json
             // 
+            this.colValue_Json.Caption = "Json值";
             this.colValue_Json.FieldName = "Value_Json";
             this.colValue_Json.MinWidth = 25;
             this.colValue_Json.Name = "colValue_Json";
@@ -566,6 +591,7 @@
             // 
             // colValue_XML
             // 
+            this.colValue_XML.Caption = "XML值";
             this.colValue_XML.FieldName = "Value_XML";
             this.colValue_XML.MinWidth = 25;
             this.colValue_XML.Name = "colValue_XML";
@@ -575,6 +601,7 @@
             // 
             // colValue_Binary
             // 
+            this.colValue_Binary.Caption = "二进制值";
             this.colValue_Binary.FieldName = "Value_Binary";
             this.colValue_Binary.MinWidth = 25;
             this.colValue_Binary.Name = "colValue_Binary";
@@ -619,6 +646,7 @@
             // 
             // colId2
             // 
+            this.colId2.Caption = "遥测数据ID";
             this.colId2.FieldName = "Id";
             this.colId2.MinWidth = 25;
             this.colId2.Name = "colId2";
@@ -628,6 +656,7 @@
             // 
             // colKeyName1
             // 
+            this.colKeyName1.Caption = "遥测键值";
             this.colKeyName1.FieldName = "KeyName";
             this.colKeyName1.MinWidth = 25;
             this.colKeyName1.Name = "colKeyName1";
@@ -637,6 +666,7 @@
             // 
             // colCatalog1
             // 
+            this.colCatalog1.Caption = "遥测数据分类";
             this.colCatalog1.FieldName = "Catalog";
             this.colCatalog1.MinWidth = 25;
             this.colCatalog1.Name = "colCatalog1";
@@ -646,6 +676,7 @@
             // 
             // colType2
             // 
+            this.colType2.Caption = "遥测数据类型";
             this.colType2.FieldName = "Type";
             this.colType2.MinWidth = 25;
             this.colType2.Name = "colType2";
@@ -655,6 +686,7 @@
             // 
             // colDateTime1
             // 
+            this.colDateTime1.Caption = "上传时间";
             this.colDateTime1.FieldName = "DateTime";
             this.colDateTime1.MinWidth = 25;
             this.colDateTime1.Name = "colDateTime1";
@@ -664,6 +696,7 @@
             // 
             // colValue_Boolean1
             // 
+            this.colValue_Boolean1.Caption = "布尔值";
             this.colValue_Boolean1.FieldName = "Value_Boolean";
             this.colValue_Boolean1.MinWidth = 25;
             this.colValue_Boolean1.Name = "colValue_Boolean1";
@@ -673,6 +706,7 @@
             // 
             // colValue_String1
             // 
+            this.colValue_String1.Caption = "字符串值";
             this.colValue_String1.FieldName = "Value_String";
             this.colValue_String1.MinWidth = 25;
             this.colValue_String1.Name = "colValue_String1";
@@ -682,6 +716,7 @@
             // 
             // colValue_Long1
             // 
+            this.colValue_Long1.Caption = "长整型值";
             this.colValue_Long1.FieldName = "Value_Long";
             this.colValue_Long1.MinWidth = 25;
             this.colValue_Long1.Name = "colValue_Long1";
@@ -691,6 +726,7 @@
             // 
             // colValue_Double1
             // 
+            this.colValue_Double1.Caption = "双精度值";
             this.colValue_Double1.FieldName = "Value_Double";
             this.colValue_Double1.MinWidth = 25;
             this.colValue_Double1.Name = "colValue_Double1";
@@ -700,6 +736,7 @@
             // 
             // colValue_Json1
             // 
+            this.colValue_Json1.Caption = "Json值";
             this.colValue_Json1.FieldName = "Value_Json";
             this.colValue_Json1.MinWidth = 25;
             this.colValue_Json1.Name = "colValue_Json1";
@@ -709,6 +746,7 @@
             // 
             // colValue_XML1
             // 
+            this.colValue_XML1.Caption = "XML值";
             this.colValue_XML1.FieldName = "Value_XML";
             this.colValue_XML1.MinWidth = 25;
             this.colValue_XML1.Name = "colValue_XML1";
@@ -718,12 +756,22 @@
             // 
             // colValue_Binary1
             // 
+            this.colValue_Binary1.Caption = "二进制值";
             this.colValue_Binary1.FieldName = "Value_Binary";
             this.colValue_Binary1.MinWidth = 25;
             this.colValue_Binary1.Name = "colValue_Binary1";
             this.colValue_Binary1.Visible = true;
             this.colValue_Binary1.VisibleIndex = 11;
             this.colValue_Binary1.Width = 94;
+            // 
+            // repositoryItemTimeEdit1
+            // 
+            this.repositoryItemTimeEdit1.AutoHeight = false;
+            this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemTimeEdit1.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
+            this.repositoryItemTimeEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
             // 
             // frmDevices
             // 
@@ -758,6 +806,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.telemetryLatestBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -829,5 +878,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colValue_Json1;
         private DevExpress.XtraGrid.Columns.GridColumn colValue_XML1;
         private DevExpress.XtraGrid.Columns.GridColumn colValue_Binary1;
+        private DevExpress.XtraBars.BarStaticItem lblInfo;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;
     }
 }

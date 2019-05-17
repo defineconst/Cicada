@@ -91,7 +91,7 @@ namespace IoTSharp.Cicada
             dis.Add("jsonvalue", new { a = 1, b = "sss", c = false, e = DateTime.Now });
             dis.Add("longvalue", 2342343L);
             dis.Add("Doublevalue", 2332.322);
-            await dev.AttributeAsync(txtToken.EditValue.ToString(), dis);
+            await dev.Attributes2Async(txtToken.EditValue.ToString(), dis);
             await ReloadLatest();
         }
 
@@ -105,7 +105,8 @@ namespace IoTSharp.Cicada
                     var dev = SdkClient.Create<DevicesClient>();
                     var ids = await dev.GetIdentityAsync(row.Id);
                     txtToken.EditValue = ids.IdentityId;
-                    XtraMessageBox.Show(ids.ToJson());
+                    //XtraMessageBox.Show(ids.ToJson());
+                    lblInfo.Caption = "已经获取到该设备Token";
                 }
             }
             catch (Exception ex)
@@ -136,7 +137,7 @@ namespace IoTSharp.Cicada
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                lblInfo.Caption = ex.Message;
             }
         }
 

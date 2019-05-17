@@ -331,11 +331,13 @@
             // 
             // btnClose
             // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Location = new System.Drawing.Point(617, 330);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(128, 61);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "关闭";
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // libinfo
             // 
@@ -350,8 +352,10 @@
             // 
             // frmInstaller
             // 
+            this.AcceptButton = this.btnInstall;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(779, 439);
             this.Controls.Add(this.libinfo);
             this.Controls.Add(this.btnClose);

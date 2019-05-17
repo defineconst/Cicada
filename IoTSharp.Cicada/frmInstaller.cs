@@ -64,5 +64,10 @@ namespace IoTSharp.Cicada
                 Email = "iotmaster@iotsharp.net"
             };
         }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
     }
 }
