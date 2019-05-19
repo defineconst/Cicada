@@ -38,6 +38,7 @@
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnTen = new DevExpress.XtraBars.BarButtonItem();
+            this.sessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
             this.btnDevices = new DevExpress.XtraBars.BarButtonItem();
@@ -50,6 +51,7 @@
             this.xtraTabbedMdiManagerEX1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManagerEX(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManagerEX1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,6 +89,7 @@
             // btnLogin
             // 
             this.btnLogin.Caption = "登录";
+            this.btnLogin.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.sessionBindingSource, "CanLogin", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnLogin.Id = 1;
             this.btnLogin.ImageOptions.SvgImage = global::IoTSharp.Cicada.Properties.Resources.bo_customer;
             this.btnLogin.Name = "btnLogin";
@@ -110,6 +113,7 @@
             // btnLogout
             // 
             this.btnLogout.Caption = "注销";
+            this.btnLogout.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.sessionBindingSource, "CanLogout", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnLogout.Id = 4;
             this.btnLogout.ImageOptions.SvgImage = global::IoTSharp.Cicada.Properties.Resources.walking;
             this.btnLogout.Name = "btnLogout";
@@ -123,10 +127,15 @@
             // btnTen
             // 
             this.btnTen.Caption = "租户管理";
+            this.btnTen.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.sessionBindingSource, "TenantAdmin", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnTen.Id = 6;
             this.btnTen.ImageOptions.SvgImage = global::IoTSharp.Cicada.Properties.Resources.bo_lead;
             this.btnTen.Name = "btnTen";
             this.btnTen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTen_ItemClick);
+            // 
+            // sessionBindingSource
+            // 
+            this.sessionBindingSource.DataSource = typeof(IoTSharp.Sdk.CSharp.Session);
             // 
             // skinRibbonGalleryBarItem1
             // 
@@ -143,6 +152,7 @@
             // btnDevices
             // 
             this.btnDevices.Caption = "设备管理";
+            this.btnDevices.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.sessionBindingSource, "NormalUser", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnDevices.Id = 11;
             this.btnDevices.ImageOptions.SvgImage = global::IoTSharp.Cicada.Properties.Resources.charttype_radarrangearea;
             this.btnDevices.Name = "btnDevices";
@@ -214,6 +224,7 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManagerEX1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -240,6 +251,7 @@
         private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem btnDevices;
+        private System.Windows.Forms.BindingSource sessionBindingSource;
     }
 }
 

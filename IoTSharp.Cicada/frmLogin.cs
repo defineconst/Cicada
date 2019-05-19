@@ -34,7 +34,7 @@ namespace IoTSharp.Cicada
                 try
                 {
                     var result = await Client.LoginAsync(username, password);
-                    if (result.Succeeded)
+                    if (result.IsLogin)
                     {
                         DialogResult = DialogResult.OK;
                     }

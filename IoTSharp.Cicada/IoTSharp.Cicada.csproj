@@ -147,6 +147,7 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\EnumKeyValue.cs" />
     <Compile Include="PrimaryScreen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -216,6 +217,8 @@
     <None Include="Properties\DataSources\IoT.Sharp.Sdk.CSharp.TelemetryData.datasource" />
     <None Include="Properties\DataSources\IoT.Sharp.Sdk.CSharp.TelemetryLatest.datasource" />
     <None Include="Properties\DataSources\IoT.Sharp.Sdk.CSharp.Tenant.datasource" />
+    <None Include="Properties\DataSources\IoTSharp.Cicada.Models.EnumKeyValue.datasource" />
+    <None Include="Properties\DataSources\IoTSharp.Sdk.CSharp.Session.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

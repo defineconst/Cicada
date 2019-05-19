@@ -22,6 +22,8 @@ namespace IoTSharp.Cicada
             var result = fl.ShowDialog(this);
             if (result == DialogResult.OK)
             {
+
+                sessionBindingSource.DataSource = Sdk.SdkClient.Session;
             }
             else if (result == DialogResult.No)
             {
@@ -38,6 +40,7 @@ namespace IoTSharp.Cicada
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            sessionBindingSource.DataSource = new Sdk.CSharp.Session(null);
         }
 
         private void SetMenuAndBar()

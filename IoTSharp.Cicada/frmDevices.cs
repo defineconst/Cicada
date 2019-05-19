@@ -12,6 +12,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraBars;
 using IoTSharp.Sdk;
 using System.Threading;
+using IoTSharp.Cicada.Models;
 
 namespace IoTSharp.Cicada
 {
@@ -48,8 +49,7 @@ namespace IoTSharp.Cicada
 
         public override Task<FileResponse> Put(Device obj, CancellationToken token)
         {
-            obj.Customer = Customer;
-            return Client.PutDeviceAsync(obj.Id, obj, token);
+            return Client.PutDeviceAsync(obj.Id,  new DevicePutDto(){   Id=obj.Id, Name=obj.Name }, token);
         }
 
         public override Task<Device> Post(Device obj, CancellationToken token)
@@ -72,6 +72,7 @@ namespace IoTSharp.Cicada
         {
             InitializeGridView(gridView1, colId);
             Client = SdkClient.Create<DevicesClient>();
+            enumKeyValueBindingSource.BindingEnum<DeviceType>();
         }
 
         private void bbiPrintPreview_ItemClick(object sender, ItemClickEventArgs e)

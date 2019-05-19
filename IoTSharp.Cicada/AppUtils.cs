@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IoTSharp.Sdk;
 
 namespace IoTSharp.Cicada
 {
@@ -147,6 +148,8 @@ namespace IoTSharp.Cicada
                 return ((AssemblyCompanyAttribute)attributes[0]).Company;
             }
         }
+
+        public static LoginResult User { get; internal set; }
         #endregion
     }
 }
